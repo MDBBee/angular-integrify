@@ -9,6 +9,8 @@ import { catchError } from 'rxjs';
 export class Store {
   http = inject(HttpClient);
   products = signal<Product[]>([]);
+  cart = signal<Product[]>([]);
+
   URL = 'https://fakestoreapi.com/products';
 
   findAllProducts() {

@@ -1,0 +1,73 @@
+<header class="bg-background p-4 mb-20">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div>
+      <a class="hover:text-gray-300">YourShop</a>
+    </div>
+
+    <nav class="space-x-4">
+      <a class="hover:text-gray-300">Home</a>
+      <a href="" class="hover:text-gray-300">Dashboard</a>
+    </nav>
+
+    <div class="relative">
+      <hlm-dialog>
+        <button brnDialogTrigger class="hover:text-gray-300">
+          <ng-icon hlm size="lg" name="lucideShoppingCart" />
+          <span
+            class="absolute top-0 left-8 inline-flex items-center justify-center px-2 py-1 text-xs font-semibold leading-none text-red-800 rounded-full bg-secondary cursor-pointer"
+          >
+            {{ cart().length }}
+          </span>
+        </button>
+
+        <hlm-dialog-content class="min-w-5xl" *brnDialogContent="let ctx">
+          <hlm-dialog-header>
+            <h3 hlmDialogTitle>Your Cart</h3>
+            <p hlmDialogDescription>You are one step closer to buy!</p>
+          </hlm-dialog-header>
+          <div class="flex flex-col gap-6">
+            @for (entry of cart() | groupByProduct | keyvalue; track entry.key) {
+              <div class="flex items-center rounded-2xl p-5 border">
+                <div class="w-28 h-28">
+                  <img
+                    [src]="entry.value[0].image"
+                    alt="{{ entry.value[0].image }}"
+                    class="object-contain w-full h-full transition-transform duration-300 hover:scale-200"
+                  />
+                </div>
+
+                <div class="ml-6 flex-1">
+                  <h3 hlmH3>{{ entry.value[0].title }}</h3>
+                  <p hlmMuted>Category: {{ entry.value[0].category }}</p>
+                  <p hlmP class="text-emerald-300 font-bold">100</p>
+                </div>
+                <!-- <div class="flex ml-6 gap-2 items-center">
+
+                  
+                </div> -->
+
+                <div class="flex ml-6 gap-2 items-center">
+                  <button type="button" hlmBtn variant="outline" class="cursor-pointer">-</button>
+                  <p hlmLarge>{{ entry.value.length }}</p>
+                  <button type="button" hlmBtn variant="outline" class="cursor-pointer">+</button>
+                </div>
+              </div>
+            }
+          </div>
+          <div class="flex gap-4 justify-center">
+            <button hlmBtn class="w-[40%] cursor-pointer" type="button">Checkout</button>
+            <button
+              hlmBtn
+              brnDialogClose
+              variant="outline"
+              type="button"
+              class="w-[40%] cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </hlm-dialog-content>
+      </hlm-dialog>
+    </div>
+  </div>
+</header>

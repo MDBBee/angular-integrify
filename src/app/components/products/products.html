@@ -1,3 +1,4 @@
+<!--  -->
 <div class="container mx-auto py-12 px-4">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     @for (product of products(); track product.id) {
@@ -22,7 +23,9 @@
         </div>
         <!-- Footer -->
         <div hlmCardFooter class="justify-between">
-          <button hlmBtn class="cursor-pointer">Add To Cart</button>
+          <button (click)="handleAddToCart(product)" hlmBtn class="cursor-pointer">
+            Add To Cart
+          </button>
           <a hlmBtn variant="outline">Read Details</a>
         </div>
       </section>
