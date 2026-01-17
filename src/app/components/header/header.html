@@ -39,7 +39,9 @@
                 <div class="ml-6 flex-1">
                   <h3 hlmH3>{{ entry.value[0].title }}</h3>
                   <p hlmMuted>Category: {{ entry.value[0].category }}</p>
-                  <p hlmP class="text-emerald-300 font-bold">100</p>
+                  <p hlmP class="text-emerald-300 font-bold">
+                    {{ (entry.value | sumPrice).toFixed(2) }}€
+                  </p>
                 </div>
                 <!-- <div class="flex ml-6 gap-2 items-center">
 
@@ -47,9 +49,25 @@
                 </div> -->
 
                 <div class="flex ml-6 gap-2 items-center">
-                  <button type="button" hlmBtn variant="outline" class="cursor-pointer">-</button>
+                  <button
+                    type="button"
+                    hlmBtn
+                    variant="outline"
+                    class="cursor-pointer"
+                    (click)="handleRemoveFromCart(entry.value[0].id)"
+                  >
+                    -
+                  </button>
                   <p hlmLarge>{{ entry.value.length }}</p>
-                  <button type="button" hlmBtn variant="outline" class="cursor-pointer">+</button>
+                  <button
+                    type="button"
+                    hlmBtn
+                    variant="outline"
+                    class="cursor-pointer"
+                    (click)="handleAddToCart(entry.value[0])"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             }

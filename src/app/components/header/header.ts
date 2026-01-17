@@ -1,4 +1,4 @@
-import { NgIcon } from '@ng-icons/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import { HlmIcon } from '../../../../libs/ui/icon/src/';
 import { Component, computed, inject } from '@angular/core';
 import { BrnDialogClose, BrnDialogContent, BrnDialogTrigger } from '@spartan-ng/brain/dialog';
@@ -16,6 +16,8 @@ import { Store } from '../../services/store';
 import { GroupByProductPipe } from '../../pipes/group-by-product-pipe';
 import { KeyValuePipe } from '@angular/common';
 import { Product } from '../../models/product.type';
+import { SumPricePipe } from '../../pipes/sum-price-pipe';
+import { lucideShoppingCart } from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-header',
@@ -41,9 +43,11 @@ import { Product } from '../../models/product.type';
 
     GroupByProductPipe,
     KeyValuePipe,
+    SumPricePipe,
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
+  providers: [provideIcons({ lucideShoppingCart })],
 })
 export class Header {
   storeService = inject(Store);
