@@ -82,3 +82,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.star-fill svg {
+  stroke: var(--color-emerald-400);
+  fill: var(--color-emerald-400);
+}

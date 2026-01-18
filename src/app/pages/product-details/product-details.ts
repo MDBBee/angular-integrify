@@ -39,4 +39,8 @@ export class ProductDetails implements OnInit {
       });
     });
   }
+
+  handleAddToCart(product: Product) {
+    this.storeService.cart.update((prev) => [...prev, product]);
+  }
 }

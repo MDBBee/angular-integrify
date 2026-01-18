@@ -1,1 +1,38 @@
-<p>dash works!</p>
+<div class="flex flex-col rounded-lg border bg-background white sm:col-span-2 lg:col-span-4">
+  <div class="p-5">
+    <div class="min-w-full overflow-x-auto rounded-sm">
+      <table class="min-w-full align-middle text-sm">
+        <thead>
+          <tr class="border-b-2">
+            <th class="min-w-35 px-3 py-2 text-start font-semibold uppercase">ID</th>
+            <th class="min-w-45 px-3 py-2 text-start font-semibold uppercase">Category</th>
+            <th class="min-w-45 px-3 py-2 text-start font-semibold uppercase">Price</th>
+            <th class="min-w-45 px-3 py-2 text-start font-semibold uppercase">Title</th>
+            <th class="px-3 py-2 text-start font-semibold uppercase">Rating</th>
+            <th class="min-w-25 px-3 py-2 text-start font-semibold uppercase"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (product of products(); track product.id) {
+            <tr class="border-b hover:bg-secondary">
+              <td class="p-3 text-start font-semibold">#{{ product.id }}</td>
+              <td class="p-3 text-start">{{ product.category | titlecase }}</td>
+              <td>€ {{ product.price.toFixed(2) }}</td>
+              <td>{{ product.title }}</td>
+              <td>
+                <span
+                  class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs leading-4 font-semibold"
+                >
+                  <span class="ml-1">
+                    <ng-icon hlm size="sm" name="lucideStar" class="star-fill" />
+                    {{ product.rating.rate }} ({{ product.rating.count }})
+                  </span>
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
