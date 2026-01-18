@@ -54,11 +54,14 @@ export class ProductForm {
   onSubmit() {
     if (!this.productForm.valid) return;
 
+    // console.log(this.productForm.getRawValue());
+
     this.storeService.createOneProduct(this.productForm.getRawValue()).subscribe((p) => {
       p.rating = {
         rate: 0,
         count: 0,
       };
+
       this.storeService.products.update((prevState) => [...prevState, p]);
     });
   }

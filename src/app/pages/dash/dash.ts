@@ -41,6 +41,10 @@ export class Dash implements OnInit {
   storeService = inject(Store);
   products = computed<Product[]>(() => this.storeService.products());
 
+  constructor() {
+    console.log(this.products());
+  }
+
   ngOnInit(): void {
     this.storeService.findAllProducts().subscribe((products) => {
       this.storeService.products.set(products);
