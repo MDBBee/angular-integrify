@@ -5,10 +5,34 @@ import { TitleCasePipe, NgClass } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideStar, lucideStarHalf } from '@ng-icons/lucide';
 import { HlmIcon } from '@spartan-ng/helm/icon';
+import { HlmCode } from '@spartan-ng/helm/typography';
+import {
+  HlmDialog,
+  HlmDialogContent,
+  HlmDialogHeader,
+  HlmDialogDescription,
+} from '@spartan-ng/helm/dialog';
+import { HlmButton } from '@spartan-ng/helm/button';
+import { BrnDialogTrigger, BrnDialogContent } from '@spartan-ng/brain/dialog';
+import { ProductForm } from '../../components/product-form/product-form';
 
 @Component({
   selector: 'app-dash',
-  imports: [TitleCasePipe, HlmIcon, NgIcon, NgClass],
+  imports: [
+    TitleCasePipe,
+    HlmIcon,
+    NgIcon,
+    NgClass,
+    HlmCode,
+    HlmDialog,
+    HlmButton,
+    BrnDialogTrigger,
+    HlmDialogContent,
+    BrnDialogContent,
+    HlmDialogHeader,
+    HlmDialogDescription,
+    ProductForm,
+  ],
   templateUrl: './dash.html',
   styleUrl: './dash.css',
   providers: [provideIcons({ lucideStar, lucideStarHalf })],

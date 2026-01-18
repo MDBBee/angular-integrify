@@ -12,3 +12,5 @@ export type Product = {
   image: string;
   rating: Rating;
 };
+
+export type ProductCreate = Omit<Product, 'id' | 'rating'>;

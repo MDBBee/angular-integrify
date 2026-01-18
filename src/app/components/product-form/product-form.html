@@ -13,10 +13,12 @@
         formControlName="title"
       />
       <!--  -->
+      <app-form-field-error [control]="productForm.controls.title" label="Title" />
     </hlm-form-field>
 
     <hlm-form-field class="w-full">
       <input type="number" class="w-full" title="price" hlmInput formControlName="price" />
+      <app-form-field-error [control]="productForm.controls.price" label="Price" />
     </hlm-form-field>
   </div>
 
@@ -29,6 +31,7 @@
       class="min-h-20 w-full"
     ></textarea>
     <!--  -->
+    <app-form-field-error [control]="productForm.controls.description" label="Description" />
   </hlm-form-field>
 
   <div class="flex gap-10">
@@ -48,6 +51,7 @@
         </hlm-select-content>
       </brn-select>
       <!--  -->
+      <app-form-field-error [control]="productForm.controls.category" label="Description" />
     </div>
 
     <hlm-form-field class="w-full">
@@ -59,11 +63,12 @@
         type="text"
       />
       <!--  -->
+      <app-form-field-error [control]="productForm.controls.image" label="Description" />
     </hlm-form-field>
   </div>
 
   <div class="flex gap-4">
-    <button brnDialogClose type="submit" class="w-full" hlmBtn>Create Product</button>
-    <button type="button" hlmBtn brnDialogClose variant="outline" class="w-full">Close</button>
+    <button brnDialogClose type="submit" class="w-1/2" hlmBtn>Create Product</button>
+    <button type="button" hlmBtn brnDialogClose variant="outline" class="w-1/2">Close</button>
   </div>
 </form>

@@ -1,1 +1,16 @@
-<p>form-field-error works!</p>
+@if (control.invalid && (control.dirty || control.touched)) {
+  @if (control.hasError('required')) {
+    <hlm-hint> {{ label }} is Required!.</hlm-hint>
+  }
+  @if (control.hasError('minlength')) {
+    <hlm-hint>
+      {{ label }} - Minimum length required is
+      {{ control.errors?.['minlength'].requiredLength }} !.</hlm-hint
+    >
+  }
+  @if (control.hasError('min')) {
+    <hlm-hint>
+      {{ label }} - Minimum length required is {{ control.errors?.['min'].min }} !.</hlm-hint
+    >
+  }
+}
