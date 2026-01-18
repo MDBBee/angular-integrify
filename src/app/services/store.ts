@@ -46,4 +46,10 @@ export class Store {
       }),
     );
   }
+
+  deleteOneProduct(productId: number) {
+    this.products.update((prevState) => {
+      return prevState.filter((p) => p.id !== productId);
+    });
+  }
 }

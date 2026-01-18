@@ -67,6 +67,36 @@
                   </span>
                 </span>
               </td>
+              <td class="p-3 text-start">
+                <hlm-dialog>
+                  <button hlmBtn variant="destructive" id="new-product" brnDialogTrigger>
+                    Delete
+                  </button>
+                  <hlm-dialog-content class="w-[625px]" *brnDialogContent="let ctx">
+                    <hlm-dialog-header>
+                      <h3 hlmDialogTitle>Delete Confirmation</h3>
+                      <p hlmDialogDescription>
+                        Are you sure you want to delete {{ product.title }}
+                      </p>
+                    </hlm-dialog-header>
+
+                    <div class="flex justify-between gap-2">
+                      <button
+                        hlmBtn
+                        variant="destructive"
+                        class="w-1/2"
+                        type="button"
+                        (click)="storeService.deleteOneProduct(product.id)"
+                      >
+                        Delete
+                      </button>
+                      <button hlmBtn brnDialogClose variant="outline" class="w-1/2" type="button">
+                        Close
+                      </button>
+                    </div>
+                  </hlm-dialog-content>
+                </hlm-dialog>
+              </td>
             </tr>
           }
         </tbody>

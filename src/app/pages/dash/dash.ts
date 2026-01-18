@@ -11,9 +11,10 @@ import {
   HlmDialogContent,
   HlmDialogHeader,
   HlmDialogDescription,
+  HlmDialogTitle,
 } from '@spartan-ng/helm/dialog';
 import { HlmButton } from '@spartan-ng/helm/button';
-import { BrnDialogTrigger, BrnDialogContent } from '@spartan-ng/brain/dialog';
+import { BrnDialogTrigger, BrnDialogContent, BrnDialogClose } from '@spartan-ng/brain/dialog';
 import { ProductForm } from '../../components/product-form/product-form';
 
 @Component({
@@ -32,6 +33,8 @@ import { ProductForm } from '../../components/product-form/product-form';
     HlmDialogHeader,
     HlmDialogDescription,
     ProductForm,
+    HlmDialogTitle,
+    BrnDialogClose,
   ],
   templateUrl: './dash.html',
   styleUrl: './dash.css',
