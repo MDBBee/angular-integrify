@@ -24,7 +24,18 @@
                   class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs leading-4 font-semibold"
                 >
                   <span class="ml-1">
-                    <ng-icon hlm size="sm" name="lucideStar" class="star-fill" />
+                    @for (star of getStars(product.rating.rate); track $index) {
+                      <ng-icon
+                        hlm
+                        size="sm"
+                        [name]="star"
+                        [ngClass]="{
+                          'star-fill': product.rating.rate >= 4.5,
+                          'star-fill-mid': product.rating.rate >= 3.0 && product.rating.rate < 4.5,
+                          'star-fill-low': product.rating.rate < 3.0,
+                        }"
+                      />
+                    }
                     {{ product.rating.rate }} ({{ product.rating.count }})
                   </span>
                 </span>

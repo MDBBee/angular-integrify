@@ -87,3 +87,11 @@
   stroke: var(--color-emerald-400);
   fill: var(--color-emerald-400);
 }
+.star-fill-mid svg {
+  stroke: var(--color-amber-400);
+  fill: var(--color-amber-400);
+}
+.star-fill-low svg {
+  stroke: var(--color-rose-400);
+  fill: var(--color-rose-400);
+}
