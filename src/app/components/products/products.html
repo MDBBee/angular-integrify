@@ -26,7 +26,7 @@
           <button (click)="handleAddToCart(product)" hlmBtn class="cursor-pointer">
             Add To Cart
           </button>
-          <a hlmBtn variant="outline">Read Details</a>
+          <a hlmBtn variant="outline" [routerLink]="['details', product.id]">Read Details</a>
         </div>
       </section>
     }

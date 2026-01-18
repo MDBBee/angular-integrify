@@ -22,6 +22,7 @@ import {
   HlmMuted,
   HlmLarge,
 } from '@spartan-ng/helm/typography';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -36,6 +37,7 @@ import {
     KeyValuePipe,
     HlmMuted,
     HlmLarge,
+    RouterLink,
   ],
   templateUrl: './products.html',
   styleUrl: './products.css',

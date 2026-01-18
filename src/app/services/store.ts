@@ -21,4 +21,13 @@ export class Store {
       }),
     );
   }
+
+  findOneProduct(id: string) {
+    return this.http.get<Product>(this.URL + `/${id}`).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }),
+    );
+  }
 }

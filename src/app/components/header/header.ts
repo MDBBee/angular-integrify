@@ -18,32 +18,30 @@ import { KeyValuePipe } from '@angular/common';
 import { Product } from '../../models/product.type';
 import { SumPricePipe } from '../../pipes/sum-price-pipe';
 import { lucideShoppingCart } from '@ng-icons/lucide';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
     NgIcon,
     HlmIcon,
-
     BrnDialogClose,
     BrnDialogContent,
     BrnDialogTrigger,
-
     HlmDialog,
     HlmDialogContent,
     HlmDialogHeader,
     HlmDialogTitle,
     HlmDialogDescription,
-
     HlmButton,
     HlmH3,
     HlmP,
     HlmMuted,
     HlmLarge,
-
     GroupByProductPipe,
     KeyValuePipe,
     SumPricePipe,
+    RouterLink,
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
