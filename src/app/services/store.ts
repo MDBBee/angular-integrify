@@ -52,4 +52,15 @@ export class Store {
       return prevState.filter((p) => p.id !== productId);
     });
   }
+
+  updateOneProduct(updatedProduct: Product) {
+    this.products.update((prevState) => {
+      return prevState.map((p) => {
+        if (p.id === updatedProduct.id) {
+          return updatedProduct;
+        }
+        return p;
+      });
+    });
+  }
 }

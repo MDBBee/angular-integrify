@@ -67,7 +67,21 @@
                   </span>
                 </span>
               </td>
-              <td class="p-3 text-start">
+              <td class="p-3 text-end font-medium flex gap-4">
+                <!--  -->
+                <hlm-dialog>
+                  <button id="update-product" brnDialogTrigger hlmBtn variant="outline">
+                    Update
+                  </button>
+                  <hlm-dialog-content class="w-[625px]" *brnDialogContent="let ctx">
+                    <hlm-dialog-header>
+                      <h3 hlmDialogTitle>Update {{ product.title }}</h3>
+                      <p hlmDialogDescription>Update product. Click update when you're done.</p>
+                    </hlm-dialog-header>
+                    <app-product-form [product]="product" [isUpdating]="true" />
+                  </hlm-dialog-content>
+                </hlm-dialog>
+                <!--  -->
                 <hlm-dialog>
                   <button hlmBtn variant="destructive" id="new-product" brnDialogTrigger>
                     Delete

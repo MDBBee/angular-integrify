@@ -14,3 +14,4 @@ export type Product = {
 };
 
 export type ProductCreate = Omit<Product, 'id' | 'rating'>;
+export type ProductUpdate = Omit<Product, 'id' | 'rating'>;
