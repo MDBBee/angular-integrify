@@ -1,6 +1,6 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { Store } from '../../services/store';
-import { Product } from '../../models/product.type';
+import { Product, Rating } from '../../models/product.type';
 import { TitleCasePipe, NgClass } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideStar, lucideStarHalf } from '@ng-icons/lucide';
@@ -16,6 +16,7 @@ import {
 import { HlmButton } from '@spartan-ng/helm/button';
 import { BrnDialogTrigger, BrnDialogContent, BrnDialogClose } from '@spartan-ng/brain/dialog';
 import { ProductForm } from '../../components/product-form/product-form';
+import { HlmCard } from '@spartan-ng/helm/card';
 
 @Component({
   selector: 'app-dash',
@@ -35,6 +36,7 @@ import { ProductForm } from '../../components/product-form/product-form';
     ProductForm,
     HlmDialogTitle,
     BrnDialogClose,
+    HlmCard,
   ],
   templateUrl: './dash.html',
   styleUrl: './dash.css',
@@ -43,6 +45,20 @@ import { ProductForm } from '../../components/product-form/product-form';
 export class Dash implements OnInit {
   storeService = inject(Store);
   products = computed<Product[]>(() => this.storeService.products());
+
+  categories = computed<string[]>(() => this.storeService.categories());
+  totalProductsRate = computed<Rating>(() => {
+    const products = this.storeService.products();
+    return products.reduce(
+      (acc, cur) => {
+        return {
+          rate: acc.rate + cur.rating.rate,
+          count: acc.count + cur.rating.count,
+        };
+      },
+      { rate: 0, count: 0 } as Rating,
+    );
+  });
 
   constructor() {
     console.log(this.products());

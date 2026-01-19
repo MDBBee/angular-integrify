@@ -1,3 +1,40 @@
+<!--  -->
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 p-4 lg:p-8 xl:max-w-7x">
+  <div hlmCard>
+    <div class="flex grow items-center justify-between p-5">
+      <dl>
+        <dt class="text-2xl font-bold">{{ products().length }}</dt>
+        <dt class="text-sm font-medium">Current products</dt>
+      </dl>
+    </div>
+    <div class="border-t px-5 py-3 text-xs font-medium text-orange-500">Main Storage</div>
+  </div>
+  <!--  -->
+  <div hlmCard>
+    <div class="flex grow items-center justify-between p-5">
+      <dl>
+        <dt class="text-2xl font-bold">{{ categories().length }}</dt>
+        <dt class="text-sm font-medium">Categories</dt>
+      </dl>
+    </div>
+    <div class="border-t px-5 py-3 text-xs font-medium text-orange-500">In total</div>
+  </div>
+  <!--  -->
+  <div hlmCard>
+    <div class="flex grow items-center justify-between p-5">
+      <dl>
+        <dt class="text-2xl font-bold">
+          {{ (totalProductsRate().rate / products().length).toFixed(1) }}
+        </dt>
+        <dd class="text-sm font-medium">Average review rate</dd>
+      </dl>
+    </div>
+    <div class="border-t px-5 py-3 text-xs font-medium text-orange-500">All time</div>
+  </div>
+  <!--  -->
+</div>
+
+<!--  -->
 <div class="flex flex-col rounded-lg border bg-background white sm:col-span-2 lg:col-span-4">
   <div class="flex flex-col rounded-lg border bg-background white sm:col-span-2 lg:col-span-4">
     <div

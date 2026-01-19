@@ -47,9 +47,11 @@ export class Products implements OnInit {
   products = computed<Product[]>(() => this.storeService.products());
 
   ngOnInit(): void {
-    this.storeService.findAllProducts().subscribe((products) => {
-      this.storeService.products.set(products);
-    });
+    if (this.products().length === 0) {
+      this.storeService.findAllProducts().subscribe((products) => {
+        this.storeService.products.set(products);
+      });
+    }
   }
 
   handleAddToCart(product: Product) {
