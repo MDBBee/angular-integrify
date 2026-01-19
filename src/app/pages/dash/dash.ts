@@ -60,10 +60,6 @@ export class Dash implements OnInit {
     );
   });
 
-  constructor() {
-    console.log(this.products());
-  }
-
   ngOnInit(): void {
     this.storeService.findAllProducts().subscribe((products) => {
       this.storeService.products.set(products);
